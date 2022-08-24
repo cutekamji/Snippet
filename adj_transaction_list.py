@@ -6,14 +6,17 @@ result = dict()
 for item in range(len(tran_list)-1):
     if tran_list[item]==tran_list[item+1]:
         pass
-    elif tran_list[item+1] not in result[tran_list[item]]:
+    if tran_list[item] not in result.keys():
         result[tran_list[item]]=[]
+    elif tran_list[item+1] not in result[tran_list[item]]:
         result[tran_list[item]].append(tran_list[item+1])
+        
 # 역순 조회
 tran_list = tran_list[::-1]
 for item in range(len(tran_list)-1):
     if tran_list[item]==tran_list[item+1]:
         pass
+    if tran_list[item] not in result.keys():
+            result[tran_list[item]]=[]
     elif tran_list[item+1] not in result[tran_list[item]]:
-        result[tran_list[item]]=[]
         result[tran_list[item]].result(tran_list[item+1])
